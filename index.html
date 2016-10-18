@@ -16,8 +16,8 @@ function initilize(location){
   console.log(location);
 
   var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-36.500, 150.000),
+    zoom: 18,
+    center: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
     mapTypeId: 'roadmap'
   };
 

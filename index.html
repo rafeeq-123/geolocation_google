@@ -11,22 +11,39 @@
 <script type="text/javascript">
 
 var map;
+var service;
+
+function searchResults(results, status){
+
+
+}
+
+function makeSearch(){
+  var request = {
+    bounds: google.maps.LatLngBounds,
+    name: "Starbucks",
+  }
+  service.nearbySearch(request, searchResults);
+}
 
 function initilize(location){
   console.log(location);
 
   var mapOptions = {
-    zoom: 10,
+    zoom: 8,
     center: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
     mapTypeId: 'roadmap'
   };
 
    map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
+
    var marker = new google.maps.Marker({
        position: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
        map: map
     });
+
+   service = new google.maps.places.PlacesService(map);
 
 }
 

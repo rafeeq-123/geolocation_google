@@ -9,8 +9,12 @@
 <script type="text/javascript" src="javascripts/jquery.googlemap.js">
 </script>
 <script type="text/javascript">
- $(document).ready(function(){
+function initilize(location){
+  console.log(location)
+}
 
+ $(document).ready(function(){
+    navigator.geolocation.getCurrentPosition(initilize);
 
  });
 </script>

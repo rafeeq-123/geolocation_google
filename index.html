@@ -3,9 +3,8 @@
 <head>
 <link rel="stylesheet" href="styles.css">
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS8imOK4Pt8FPvY9PY0k9e-r92qHD_O3o&libraries=places&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=API_Key &libraries=places&callback"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
 <script type="text/javascript">
 
 var map;
@@ -13,11 +12,9 @@ var service;
 
 function searchResults(results, status){
 
-  console.log(results);
-
   for(var i = 0; i < results.length; i++){
 
-     var marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
        position: results[i].geometry.location,
        map: map
     });
@@ -26,26 +23,25 @@ function searchResults(results, status){
 
 function performSearch(){
   var request = {
-    radius: '500',
-    name: "gas"
+    radius: '800',
+    name: 'Starbucks'
   }
 
   service.nearbySearch(request, searchResults);
 }
 
 function initilize(location){
-  console.log(location);
-
   var mapOptions = {
-    zoom: 12,
+    zoom: 8,
     center: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
     mapTypeId: 'roadmap'
+
   };
 
    map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
 
-   var marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
        position: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
        map: map
     });
@@ -62,7 +58,6 @@ function initilize(location){
  });
 
 </script>
-
 
 </head>
 
